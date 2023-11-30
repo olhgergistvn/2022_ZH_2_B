@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_2022_ZH_2_B.MainPage">
+
+    <ScrollView Orientation="Both">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Column="0" Orientation="Vertical" Spacing="20">
+                <Label Text="Márka"/>
+                <Entry Text="{x:Binding Brand, Mode=TwoWay}"/>
+                <Label Text="Maximum ár"/>
+                <Slider Maximum="10000" Minimum="1000" Value="{x:Binding MaxPrice, Mode=TwoWay}"/>
+                <Label Text="Fajta"/>
+                <Entry Text="{x:Binding SelectedType, Mode=TwoWay}"/>
+                <Label Text="Napok száma"/>
+                <Slider Maximum="100" Minimum="1" Value="{x:Binding Days, Mode=TwoWay}"/>
+                <Button Text="Keres" WidthRequest="100"/>
+                <Label Text="{x:Binding Summary}"/>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Grid.Column="1">
+                <CollectionView ItemsSource="{x:Binding Cars}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Label Text="{x:Binding Name}"/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
